@@ -36,12 +36,12 @@ fi
 
 export HATCHET_BUILDPACK_BRANCH
 
-gem install bundler
+# gem install bundler
 bundle install
 
 export HATCHET_RETRIES=3
 export HATCHET_APP_LIMIT=20
 export HATCHET_DEPLOY_STRATEGY=git
-export HATCHET_BUILDPACK_BASE="https://github.com/heroku/heroku-buildpack-nodejs"
+export HATCHET_BUILDPACK_BASE="https://github.com/heroku/heroku-buildpack-nodejs.git"
 
 bundle exec rspec "$@"
