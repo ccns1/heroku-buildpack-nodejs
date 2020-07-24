@@ -25,7 +25,9 @@ if [ -z "$HEROKU_API_KEY" ]; then
   exit 1
 fi
 
-if [ -n "$CIRCLE_BRANCH" ]; then
+if [[ "$REPO_NAME" == "nodebin" ]]; then
+  HATCHET_BUILDPACK_BRANCH="master"
+elif [ -n "$CIRCLE_BRANCH" ]; then
   HATCHET_BUILDPACK_BRANCH="$CIRCLE_BRANCH"
 elif [ -n "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
   export IS_RUNNING_ON_TRAVIS=true
