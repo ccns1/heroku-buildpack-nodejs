@@ -34,7 +34,7 @@ else
   HATCHET_BUILDPACK_BRANCH=$(git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)#\1#' | sed 's#tags\/##')
 fi
 
-export HATCHET_BUILDPACK_BRANCH
+export HATCHET_BUILDPACK_BRANCH="master"
 
 # gem install bundler
 bundle install
@@ -42,6 +42,6 @@ bundle install
 export HATCHET_RETRIES=3
 export HATCHET_APP_LIMIT=20
 export HATCHET_DEPLOY_STRATEGY=git
-export HATCHET_BUILDPACK_BASE="https://github.com/heroku/heroku-buildpack-nodejs.git"
+export HATCHET_BUILDPACK_BASE="https://github.com/heroku/heroku-buildpack-nodejs"
 
 bundle exec rspec "$@"
